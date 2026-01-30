@@ -18,6 +18,19 @@ def criar_novo_contato(agenda):
     }
     agenda.append(contato)
     print("Contato adicionado com sucesso.")
+    print(agenda)
+    return
+
+#Função de visualizar os contatos existentes
+def ver_contatos(agenda):
+    for indice, contato in enumerate(agenda, start=1):
+        contato_favorito = "★" if contato["favorito"] else ""
+        nome = contato["nome"]
+        telefone = contato["telefone"]
+        email = contato["email"]
+        print(f"{indice}. {nome}{contato_favorito}")
+        print(f"E-mail: {email} | Telefone: {telefone}")
+        print("")
 
     return
 
@@ -26,15 +39,18 @@ while True:
     print("1. Criar novo contato.")
     print("2. Visualizar contatos existentes.")
     print("3. Editar contato.")
-    print("4. Apagar contato.")
-    print("5. Contatos favoritados.")
-    print("6. Finalizar programa.")
+    print("5. Apagar contato.")
+    print("6. Favoritar contato.")
+    print("7. Contatos favoritados.")
+    print("8. Finalizar programa.")
 
     opcao_escolhida = input("Digite a opção desejada: ")
 
-    if opcao_escolhida == "6":
+    if opcao_escolhida == "8":
         break
     elif opcao_escolhida == "1":
         criar_novo_contato(agenda)
+    elif opcao_escolhida == "2":
+        ver_contatos(agenda)
 
 print("Programa finalizado com sucesso.")
